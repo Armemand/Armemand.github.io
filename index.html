@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Armand VTT</title>
   <style>
-    /* Reset & Optimisation Apple-style */
+    /* Reset & Lissage pour rendu Apple */
     * { 
       box-sizing: border-box; 
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     body {
       background-color: #000000;
       color: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      /* Police système Apple par défaut */
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -27,8 +29,8 @@
     .banner-frame {
       width: 100%;
       max-width: 450px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
       overflow: hidden;
       margin-bottom: 20px;
       background: #0a0a0a;
@@ -40,36 +42,40 @@
       display: block;
     }
 
-    /* Cadre principal */
+    /* Cadre principal raffiné */
     .main-frame {
       width: 100%;
       max-width: 450px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      padding: 30px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      padding: 35px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: linear-gradient(145deg, #111, #000);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(145deg, #0f0f0f, #050505);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 
-    /* Titre avec animation "Shimmer" continue */
+    /* Titre agrandi avec animation Shimmer continue */
     h1 {
-      font-size: 1.8rem;
+      font-size: 2.1rem; /* Texte agrandi */
       font-weight: 700;
       margin: 0 0 10px 0;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
       text-align: center;
+      
+      /* Effet de reflet de lumière qui passe */
       background: linear-gradient(
         to right, 
-        #555 0%, 
-        #fff 50%, 
-        #555 100%
+        #4d4d4d 0%, 
+        #ffffff 50%, 
+        #4d4d4d 100%
       );
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      
+      /* Animation raffinée et fluide */
       animation: shimmer 3s linear infinite;
     }
 
@@ -81,9 +87,67 @@
     /* Flèche animée */
     .arrow {
       font-size: 2rem;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #888;
-      animation: bounce 2s infinite;
+      animation: bounce 2.5s infinite ease-in-out;
     }
 
-    @keyframes bounce
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+      40% { transform: translateY(-10px); opacity: 1; }
+      60% { transform: translateY(-5px); opacity: 0.8; }
+    }
+
+    /* Image cliquable parfaitement carrée */
+    .insta-link {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .insta-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Remplit le carré sans déformer */
+      display: block;
+    }
+
+    /* Effet tactile au clic */
+    .insta-link:active {
+      transform: scale(0.96);
+    }
+
+    .footer-hint {
+      margin-top: 15px;
+      font-size: 0.75rem;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner-frame">
+    <img src="banniere.png" alt="Bannière">
+  </div>
+
+  <div class="main-frame">
+    <h1>Voir plus de Photos</h1>
+    
+    <div class="arrow">↓</div>
+
+    <a href="https://instagram.com/armand.fk" class="insta-link">
+      <img src="Cul.pdf" alt="Ouvrir Instagram">
+    </a>
+
+    <div class="footer-hint">Appuie pour explorer</div>
+  </div>
+
+</body>
+</html>
