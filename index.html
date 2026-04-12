@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Armand VTT</title>
   <style>
-    /* Reset et style de base */
+    /* Reset de base */
     * { box-sizing: border-box; }
     
     body {
@@ -16,22 +16,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100dvh; /* Hauteur dynamique pour mobile */
-      padding: 20px;
+      min-height: 100dvh;
+    }
+
+    /* Style de la Bannière en haut */
+    .banner {
+      width: 100%;
+      /* On force une hauteur raisonnable pour mobile malgré les dimensions énormes */
+      height: 180px; 
+      /* Ajuste l'image pour qu'elle remplisse l'espace sans déformation (recadre si nécessaire) */
+      object-fit: cover; 
+      object-position: center; /* Centre l'image si elle est recadrée */
+      display: block;
+    }
+
+    /* Le Cadre (Frame) autour du contenu principal */
+    .main-frame {
+      border: 3px solid #ffffff; /* Couleur et épaisseur du cadre */
+      border-radius: 25px; /* Coins arrondis du cadre */
+      margin: 20px; /* Espace autour du cadre */
+      padding: 30px 20px; /* Espace à l'intérieur du cadre */
+      width: 90%; /* Largeur du cadre par rapport à l'écran */
+      max-width: 400px; /* Largeur max pour tablettes */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.03); /* Léger fond pour détacher le cadre */
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* Petite lueur */
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin: 0 0 10px 0;
       letter-spacing: 0.5px;
+      text-align: center;
     }
 
     /* La flèche animée */
     .arrow {
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       animation: bounce 2s infinite;
     }
 
@@ -41,50 +66,37 @@
       60% {transform: translateY(-5px);}
     }
 
-    /* Le conteneur carré de l'image */
+    /* Carré cliquable */
     .insta-link {
-      width: 90vw;      /* Prend 90% de la largeur de l'écran mobile */
-      max-width: 400px; /* Mais pas plus de 400px sur tablette/PC */
-      aspect-ratio: 1 / 1; /* Force le format carré parfait */
-      border-radius: 20px;
+      width: 100%; /* Prend toute la largeur disponible dans le cadre */
+      max-width: 300px; /* Mais pas trop grand */
+      aspect-ratio: 1 / 1; /* Format carré parfait */
+      border-radius: 15px;
       overflow: hidden;
       border: 1px solid #333;
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
       display: block;
-      -webkit-tap-highlight-color: transparent; /* Enlève le flash bleu au clic sur mobile */
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
     .insta-link img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Remplit le carré sans déformer l'image */
+      object-fit: cover; /* Remplit le carré sans déformer l'image (PDF) */
       display: block;
-      transition: transform 0.3s ease;
     }
 
-    /* Petit effet tactile au clic */
-    .insta-link:active img {
-      transform: scale(0.96);
+    .insta-link:active {
+      transform: scale(0.97);
+      transition: transform 0.1s;
     }
 
-    /* Texte discret en bas */
-    .footer {
-      margin-top: 20px;
+    /* Texte d'aide en bas (optionnel, supprime-le si tu veux) */
+    .footer-note {
+      margin-top: 15px;
       font-size: 0.8rem;
-      color: #666;
+      color: #888;
     }
   </style>
 </head>
 <body>
-
-  <h1>Voir plus de Photos</h1>
-  
-  <div class="arrow">↓</div>
-
-  <a href="https://instagram.com/armand.fk" class="insta-link">
-    <img src="Cul.pdf" alt="Pour tes beaux yeux coquin">
-  </a>
-
-
-</body>
-</html>
