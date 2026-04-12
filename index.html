@@ -3,38 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Armand VTT</title>
+  <title>Armand VTT - Photos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       max-width: 700px;
-      margin: 40px auto;
+      margin: 0 auto;
+      /* Centre verticalement le contenu sur les grands écrans */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 20px;
       line-height: 1.6;
       text-align: center;
-      /* Modification pour le fond noir */
-      background: #000000; 
-      color: white;
+      /* Fond noir et texte blanc */
+      background-color: #000000; 
+      color: #ffffff;
     }
+
     h1 {
-      margin-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
     }
-    p {
-      /* Texte en gris clair pour mieux lire sur le noir */
-      color: #ccc; 
-    }
-    a.btn-link {
-      display: block;
-      margin: 14px 0;
-      padding: 14px;
+
+    /* Conteneur du lien autour de l'image pour le centrage */
+    .img-link {
+      display: inline-block;
       text-decoration: none;
-      border: 1px solid #444; /* Bordure plus discrète */
-      border-radius: 10px;
-      color: white;
-      font-weight: bold;
-      background: #1a1a1a; /* Fond légèrement gris pour le bouton */
+      /* Supprime la bordure bleue potentielle autour du lien sur certains vieux navigateurs */
+      outline: none; 
     }
-    a.btn-link:hover {
+
+    .img-link img {
+      /* Force l'image à être carrée */
+      width: 250px; 
+      height: 250px;
+      /* Important : empêche la déformation si l'image originale n'est pas carrée */
+      object-fit: cover; 
+      
+      border-radius: 12px; /* Coins arrondis */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      /* Petite ombre pour détacher l'image du fond noir si elle est sombre */
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); 
+    }
+
+    /* Effet au survol de la souris (pour ordinateur) */
+    .img-link img:hover {
+      transform: scale(1.05); /* L'image grossit légèrement */
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Plus d'Images</h1>
+
+  <a href="https://instagram.com/armand.fk" class="img-link">
+    <img src="Cul.pdf" alt="Voir plus de photos sur Instagram">
+  </a>
+
+</body>
+</html>    a.btn-link:hover {
       background: #333;
     }
     .img-container img {
